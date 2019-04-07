@@ -26,7 +26,6 @@ function hora(segundos){
  return hora+":"+minuto+":"+segundo;
 }
 
-
 function main()
 {
   //-- Inicialización y construcción de los videos
@@ -39,8 +38,28 @@ function main()
   ver1 = document.getElementById('play1')
   ver2 = document.getElementById('play2')
   ver3 = document.getElementById('play3')
+  //--
+  time0 = document.getElementById('Time0')
+  time1 = document.getElementById('Time1')
+  time2 = document.getElementById('Time2')
+  time3 = document.getElementById('Time3')
+
+  //-- Contador
+  setInterval(()=>{
+      time0.innerHTML = hora(video0.time());
+    },20);
+  setInterval(()=>{
+      time1.innerHTML = hora(video1.time());
+    },20);
+  setInterval(()=>{
+      time2.innerHTML = hora(video2.time());
+    },20);
+  setInterval(()=>{
+      time3.innerHTML = hora(video3.time());
+    },20);
 
 
+  //-- Play videos de selección
   video1.play("Mb.mp4",0)
   video2.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4",0)
   video3.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4",0)
