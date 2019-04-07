@@ -2,55 +2,63 @@ function video(name_video,width,height){
   this.video = document.getElementById(name_video);
   this.video.width = width;
   this.video.height = height;
-  this.play = function(ubicacion){
+  this.play = function(ubicacion, inicio){
     this.video.src = ubicacion;
+    this.video.currentTime  =  inicio ;
   }
   this.audio = function(res){
     this.video.muted = res;
   }
+  this.time = function(){
+    return this.video.currentTime;
+  }
+  this.ubicacion = function(ubicacion, inicio){
+    return this.video.src;
+  }
 }
+function hora(segundos){
+ var d=new Date(segundos*1000);
+ // Ajuste de las 23 horas
+ var hora = (d.getHours()==0)?23:d.getHours()-1;
+ var hora = (hora<9)?"0"+hora:hora;
+ var minuto = (d.getMinutes()<9)?"0"+d.getMinutes():d.getMinutes();
+ var segundo = (d.getSeconds()<9)?"0"+d.getSeconds():d.getSeconds();
+ return hora+":"+minuto+":"+segundo;
+}
+
 
 function main()
 {
   //-- Inicialización y construcción de los videos
+  var video0 = new video('video0',600,300)
   var video1 = new video('video1',200,100)
   var video2 = new video('video2',200,100)
   var video3 = new video('video3',200,100)
-  var video0 = new video('video0',600,300)
 
   //-- Boton de Play
   ver1 = document.getElementById('play1')
   ver2 = document.getElementById('play2')
   ver3 = document.getElementById('play3')
 
-  video1.play("Mb.mp4")
-  video2.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4")
-  video3.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4")
 
+  video1.play("Mb.mp4",0)
+  video2.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4",0)
+  video3.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4",0)
 
-  ver2.onclick = () => {
-    //-- Indicar la fuente del vídeo
-    video0.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4")
-  }
-  ver3.onclick = () => {
-    //-- Indicar la fuente del vídeo
-    video0.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4")
-  }
 
   //-- Al apretar el boton de ver video
   ver1.onclick = () => {
     //-- Indicar la fuente del vídeo
-    video0.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4")
+    video0.play(video1.ubicacion(),video1.time())
   }
   ver2.onclick = () => {
-    //-- Indicar la fuente del vídeo
-    video0.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4")
+    video0.play(video2.ubicacion(),video2.time())
   }
   ver3.onclick = () => {
-    //-- Indicar la fuente del vídeo
-    video0.play("https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4")
+    video0.play(video3.ubicacion(),video3.time())
   }
 
+  //-- Salida de audio
   ver1.onmouseover = () => {
     video1.audio(false);
   }
