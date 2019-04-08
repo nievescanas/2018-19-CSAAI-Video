@@ -3,14 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Video 02</title>
+    <link rel="stylesheet" href="style.css">
     <script src="mouse-01.js"></script>
-    <link rel="stylesheet" href="css/style.css">
   </head>
   <body onload="main()">
-    <video id="video0" autoplay loop muted></video>
-    <br>
-    <button type="button" id="play1"><video id="video1" autoplay loop muted></video></button>
-    <button type="button" id="play2"><video id="video2" autoplay loop muted></video></button>
-    <button type="button" id="play3"><video id="video3" autoplay loop muted></video></button>
+    <div class="header">
+        <p>EDITOR DE VIDEO</p>
+    </div>
+    <div class="ex1">
+      <video id="video0" autoplay loop muted></video>
+    </div>
+    <div class="ex2">
+        <p id="Time0"></p>
+    </div>
+    <div class="ex3">
+      <button type="button" class = button_play id="play"> EMPEZAR </button>
+    </div>
+    <div class="ex4">
+      <button class = button_content type="button" id="play1"><video id="video1" autoplay loop muted></video><p id="Time1"></p></button>
+      <button class = button_content  type="button" id="play2"><video id="video2" autoplay loop muted></video><p id="Time2"></p></button>
+      <button class = button_content  type="button" id="play3"><video id="video3" autoplay loop muted></video><p id="Time3"></p></button>
+    </div>
+
   </body>
 </html>

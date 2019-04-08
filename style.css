@@ -1,0 +1,73 @@
+* {
+    margin:0;
+    padding:0;
+}
+html, body{
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+body {
+  font-family: 'Tenor+Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  content: " ";
+  position: absolute;
+  background-color: #f5f5f5;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/859573/FloweryDisasterByDanaRounds5.svg);
+  background-size: cover, 102% 100%, 100% 100%;
+  background-position: center center;
+  background-repeat: repeat;
+  overflow: auto;
+}
+
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+}
+
+.button_content {
+    background-color: white;
+    height:140px;
+    line-height:20px;
+    border-radius: 12px;
+    padding:0px 2px;
+}
+
+.button_play {
+    text-align: center;
+    background-color: white;
+    height:50px;
+    line-height:20px;
+    border-radius: 12px;
+    padding:0px 2px;
+}
+
+div.ex1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+div.ex2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+}
+div.ex3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+div.ex4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+
+}
