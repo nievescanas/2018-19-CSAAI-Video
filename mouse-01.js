@@ -3,6 +3,7 @@ function video(name_video,width,height){
   this.video = document.getElementById(name_video);
   this.video.width = width;
   this.video.height = height;
+  this.control = false;
   this.play = function(ubicacion, inicio){
     this.video.src = ubicacion;
     this.video.currentTime  =  inicio ;
@@ -12,6 +13,14 @@ function video(name_video,width,height){
   }
   this.time = function(){
     return this.video.currentTime;
+  }
+  this.loop = function(){
+    if (this.control == false){
+      this.control = true;
+    }else{
+      this.control = false;
+    }
+    this.video.loop = this.control;
   }
   this.ubicacion = function(ubicacion, inicio){
     return this.video.src;
@@ -44,12 +53,16 @@ function main(){
   time2 = document.getElementById('Time2')
   time3 = document.getElementById('Time3')
 
+  loop1 = document.getElementById('loop1')
+  loop2 = document.getElementById('loop2')
+  loop3 = document.getElementById('loop3')
+
   play = document.getElementById('play')
   play.onclick = () => {
     document.getElementById('play').style.display = 'none';
     //-- Contador
     setInterval(()=>{
-        time0.innerHTML = hora(0);
+        time0.innerHTML = hora(video0.time());
       },20);
     setInterval(()=>{
         time1.innerHTML = hora(video1.time());
@@ -77,6 +90,18 @@ function main(){
     ver3.onclick = () => {
       video0.play(video3.ubicacion(),video3.time())
     }
+
+    loop1.onclick = () => {
+      //-- Indicar la fuente del vídeo
+      video1.loop()
+    }
+    loop2.onclick = () => {
+      video2.loop()
+    }
+    loop3.onclick = () => {
+      video3.loop()
+    }
+
 
     //-- Salida de audio
     ver1.onmouseover = () => {
